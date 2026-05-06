@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCAddon Saver</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: #121212; color: white; margin: 0; }
+        .box { text-align: center; border: 2px solid #4CAF50; padding: 2rem; border-radius: 15px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2 id="status">Ready for .mcaddon</h2>
+        <p>Install this to your Home Screen first!</p>
+    </div>
+
+    <script>
+        // Catch the shared file
+        if ('launchQueue' in window) {
+            launchQueue.setConsumer(async (launchParams) => {
+                if (launchParams.files && launchParams.files.length > 0) {
+                    document.getElementById('status').innerText = "Downloading...";
+                    const fileHandle = launchParams.files[0];
+                    const file = await fileHandle.getFile();
+                    
+                    // Force download to Downloads folder
+                    const url = URL.createObjectURL(file);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = file.name; 
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    document.getElementById('status').innerText = "Saved: " + file.name;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
