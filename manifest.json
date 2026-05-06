@@ -1,7 +1,8 @@
 {
-  "name": "MC Portal Saver",
+  "name": "MC Portal",
   "short_name": "MCPortal",
-  "start_url": "/mcportal/",
+  "start_url": "/mcportal/index.html",
+  "scope": "/mcportal/",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#4CAF50",
@@ -13,7 +14,7 @@
       "files": [
         {
           "name": "file",
-          "accept": [".mcaddon", ".mcpack", ".mcworld", ".zip", "application/octet-stream"]
+          "accept": [".mcaddon", ".mcpack", ".mcworld", "application/octet-stream"]
         }
       ]
     }
@@ -22,7 +23,8 @@
     {
       "src": "https://flaticon.com",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
