@@ -1,21 +1,28 @@
 {
-  "name": "MCAddon Saver",
-  "short_name": "MCASave",
-  "start_url": "index.html",
+  "name": "MC Portal Saver",
+  "short_name": "MCPortal",
+  "start_url": "/mcportal/",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#4CAF50",
   "share_target": {
-    "action": "index.html",
+    "action": "/mcportal/",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {
       "files": [
         {
           "name": "file",
-          "accept": [".mcaddon", ".mcpack", ".mcworld", "application/octet-stream"]
+          "accept": [".mcaddon", ".mcpack", ".mcworld", ".zip", "application/octet-stream"]
         }
       ]
     }
-  }
+  },
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
