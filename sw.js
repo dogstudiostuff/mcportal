@@ -3,8 +3,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    // This empty listener is enough to satisfy PWA requirements
     if (event.request.method === 'POST') {
-        event.respondWith(Response.redirect('./index.html'));
+        event.respondWith(Response.redirect('./index.html', 303));
     }
 });
